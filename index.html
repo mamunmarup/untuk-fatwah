@@ -1,0 +1,186 @@
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>Untuk Fatwah Adawiyatusalamah ❤️</title>
+
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(to bottom, #ffb6d9, #ff4fa3);
+        text-align: center;
+        color: white;
+      }
+
+      /* Nama */
+      h1 {
+        margin-top: 25vh;
+        font-size: 55px;
+      }
+
+      /* Typewriter */
+      #text {
+        width: 80%;
+        margin: 20px auto;
+        font-size: 22px;
+        min-height: 60px;
+      }
+
+      /* Countdown */
+      #countdown {
+        font-size: 40px;
+        margin-top: 20px;
+      }
+
+      /* Tombol */
+      button {
+        padding: 15px 30px;
+        font-size: 20px;
+        background: white;
+        color: #ff4fa3;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        display: none;
+        margin-top: 20px;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        transform: scale(1.1);
+      }
+
+      /* Final */
+      #final {
+        display: none;
+        font-size: 30px;
+        margin-top: 20px;
+        animation: glow 1.5s infinite alternate;
+      }
+
+      @keyframes glow {
+        from {
+          text-shadow: 0 0 10px white;
+        }
+        to {
+          text-shadow: 0 0 30px yellow;
+        }
+      }
+
+      /* Love jatuh */
+      .heart {
+        position: absolute;
+        font-size: 20px;
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          top: -10%;
+        }
+        100% {
+          top: 100%;
+        }
+      }
+
+      /* Love explosion */
+      .explode {
+        position: absolute;
+        font-size: 30px;
+        animation: boom 1s ease-out forwards;
+      }
+
+      @keyframes boom {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(3);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Fatwah Adawiyatussalamah 💗</h1>
+    <div id="text"></div>
+    <div id="countdown"></div>
+    <button onclick="finalMoment()">I want you to be mine? </button>
+    <div id="final">Aku sayang kamu, sekarang dan seterusnya ❤️</div>
+
+    <!-- Musik (ganti link kalau mau lagu lain) -->
+    <audio autoplay loop>
+      <source
+        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <script>
+      const message =
+        "Setiap rencana do'a masa depan yang aku susun... selalu ada nama kamu di dalamnya,                Fatwah Adawiyatussalamah.";
+      let i = 0;
+
+      function typeWriter() {
+        if (i < message.length) {
+          document.getElementById("text").innerHTML += message.charAt(i);
+          i++;
+          setTimeout(typeWriter, 50);
+        } else {
+          startCountdown();
+        }
+      }
+      typeWriter();
+
+      /* Countdown */
+      let count = 5;
+      function startCountdown() {
+        const cd = document.getElementById("countdown");
+        const interval = setInterval(() => {
+          cd.innerHTML = count;
+          count--;
+          if (count < 0) {
+            clearInterval(interval);
+            cd.innerHTML = "";
+            document.querySelector("button").style.display = "inline-block";
+          }
+        }, 1000);
+      }
+
+      /* Final Moment */
+      function finalMoment() {
+        document.getElementById("final").style.display = "block";
+
+        for (let i = 0; i < 30; i++) {
+          const love = document.createElement("div");
+          love.classList.add("explode");
+          love.innerHTML = "💗";
+          love.style.left = Math.random() * 100 + "vw";
+          love.style.top = Math.random() * 100 + "vh";
+          document.body.appendChild(love);
+
+          setTimeout(() => {
+            love.remove();
+          }, 1000);
+        }
+      }
+
+      /* Love jatuh */
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 6000);
+      }
+      setInterval(createHeart, 300);
+    </script>
+  </body>
+</html>
