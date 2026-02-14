@@ -151,21 +151,25 @@
 
       /* Final Moment */
       function finalMoment() {
-        document.getElementById("final").style.display = "block";
+    document.getElementById("final").style.display = "block";
 
-        for (let i = 0; i < 30; i++) {
-          const love = document.createElement("div");
-          love.classList.add("explode");
-          love.innerHTML = "💗";
-          love.style.left = Math.random() * 100 + "vw";
-          love.style.top = Math.random() * 100 + "vh";
-          document.body.appendChild(love);
+    // Play music
+    const music = document.getElementById("bgMusic");
+    music.play();
 
-          setTimeout(() => {
+    for (let i = 0; i < 30; i++) {
+        const love = document.createElement("div");
+        love.classList.add("explode");
+        love.innerHTML = "💗";
+        love.style.left = Math.random() * 100 + "vw";
+        love.style.top = Math.random() * 100 + "vh";
+        document.body.appendChild(love);
+
+        setTimeout(() => {
             love.remove();
-          }, 1000);
-        }
-      }
+        }, 1000);
+    }
+}
 
       /* Love jatuh */
       function createHeart() {
